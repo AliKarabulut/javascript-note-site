@@ -8,10 +8,10 @@ const Navbar = (props) => {
     <nav className={styles.navbar}>
       <div className={styles.name}>Javascript D.</div>
       {ctx.isStart && (
-        <div>
+        <div className={styles.inputwrapper}>
           <input className={styles.search} type="text" placeholder="Ara" />
-          <i></i>
-          </div>
+          <i className={styles.icon}></i>
+        </div>
       )}
 
       {ctx.isStart && (
