@@ -1,0 +1,13 @@
+.navbar{
+    height: 40px;
+    background-color: #20232A;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.name{
+    font-size: 1.3rem;
+    color: white;
+    padding: 0px 10px 0px 100px ;
+}
