@@ -1,12 +1,12 @@
 import React from "react";
 
-const Start = React.createContext({
+const StartStore = React.createContext({
 
-    setStart: false
+    isStart: false
 })
 
 export const StartcontextProvider = (props) =>{
-    return <Start.Provider>{props.children}</Start.Provider>
+    return <StartStore.Provider>{props.children}</StartStore.Provider>
 }
 
-export default Start
+export default StartStore
