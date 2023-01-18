@@ -1,9 +1,9 @@
 .card{
     width: 20%;
-    padding: 20px 0px 0px 20px;
+    padding: 20px 0px 20px 20px;
     line-height: 2rem;
     font-weight:500;
-    height: 100vh;
+    height: 100%;
     background-color: #F7F7F7;
     position: relative;
     left: 0px;
