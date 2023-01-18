@@ -2,12 +2,13 @@ const String = [
   {
     id: "at",
     title: "at",
-    syntax: "Syntax => { at(index) }",
+    syntax: ["at(index)","at(index00)"],
     value: "const pangram = 'Pijamalı hasta yağız şoföre çabucak güvendi.'",
     paragraph: [
       "Bir tam sayı değeri alır ve stringte karşılık gelen değeri döndürür.",
       "Verilen değer bulunamazsa `undefinied` döndürür.",
     ],
+
     output: [
       ["pangram.at(5)", "//Çıktı: a"],
       ["pangram.at(-5)", "//Çıktı: e"],
