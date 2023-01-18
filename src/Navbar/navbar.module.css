@@ -5,6 +5,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-around;
+  position: relative;
 }
 
 .name {
@@ -40,31 +41,34 @@
   cursor: pointer;
 }
 
-.navbar ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+.blist {
   display: flex;
   align-items: center;
+  gap: 15px;
 }
 
-.navbar li {
-  margin: 0;
-  margin-left: 2rem;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: white;
-}
-
-.navbar button:hover,
-.navbar button:active {
-  color: #f3cafb;
-}
-
-.bar{
-  width: 100%;
+.bar {
   height: 1px;
   background-color: #f3cafb;
+  position: absolute;
+  top: var(--top);
+  left: var(--left) ;
+  width: var(--width);
+  transition: all .5s;
 }
+
+
+.navButton {
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 0px 10 px;
+
+}
+
+/* .navButton:hover,
+.navButton:active {
+  color: #f3cafb;
+  cursor: pointer;
+} */
+
