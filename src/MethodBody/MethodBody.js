@@ -9,6 +9,7 @@ const MethodBody = (props) => {
       <div>{ctx.metotlar.id}</div>
       <div>{ctx.metotlar.paragraph?.map((item) => (<div>{item}</div> ))}</div>
     </div>
+
   );
 };
 

@@ -22,8 +22,8 @@ function App() {
   return (
     <StartStore.Provider value={{ isStart: isStart, metotlar:item}}>
       <Navbar></Navbar>
+      {!isStart && <Start onStart={startHandler} />}
       <div className={styles.wrapper}>
-        {!isStart && <Start onStart={startHandler} />}
         {isStart && <MethodBody></MethodBody>}
         {isStart && <TitleCard onMetot={addMetot}/>}
       </div>
