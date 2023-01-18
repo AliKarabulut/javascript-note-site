@@ -6,6 +6,7 @@ const Navbar = (props) => {
   const ctx = useContext(StartStore);
   const [position, setPosition] = useState("");
   const clickHandler = (e) => {
+    props.onHeader(e.target.id);
     const { top, width, height, bottom } = e.target.getBoundingClientRect();
     const left = e.target.offsetLeft;
     setPosition({
@@ -56,14 +57,26 @@ const Navbar = (props) => {
               }}
             ></div>
           )}
-          <button onClick={clickHandler} className={styles.navButton + " " + styles.active}>
+          <button
+            id="StringMetot"
+            onClick={clickHandler}
+            className={styles.navButton + " " + styles.active}
+          >
+            String
+          </button>
+          <button
+            id="NumberMetot"
+            onClick={clickHandler}
+            className={styles.navButton}
+          >
             Number
           </button>
-          <button onClick={clickHandler} className={styles.navButton}>
+          <button
+            id="ArrayMetot"
+            onClick={clickHandler}
+            className={styles.navButton}
+          >
             Array
-          </button>
-          <button onClick={clickHandler} className={styles.navButton}>
-            String
           </button>
         </div>
       )}

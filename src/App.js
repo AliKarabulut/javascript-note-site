@@ -9,23 +9,28 @@ import TitleCard from "./TitleCard/TitleCard";
 function App() {
   const [isStart, setStart] = useState(false);
   const [item, setItem] = useState([]);
+  const [header, setHeader] = useState("StringMetot");
 
   const startHandler = () => {
     setStart(true);
   };
 
-  const addMetot = props => {
-    setItem(props)
-    console.log(props)
-  }
-  
+  const addHeader = (props) => {
+    setHeader(props);
+  };
+  const addMetot = (props) => {
+    setItem(props);
+  };
+
   return (
-    <StartStore.Provider value={{ isStart: isStart, metotlar:item}}>
-      <Navbar></Navbar>
+    <StartStore.Provider
+      value={{ isStart: isStart, metotlar: item, metotHeader: header }}
+    >
+      <Navbar onHeader={addHeader}></Navbar>
       {!isStart && <Start onStart={startHandler} />}
       <div className={styles.wrapper}>
         {isStart && <MethodBody></MethodBody>}
-        {isStart && <TitleCard onMetot={addMetot}/>}
+        {isStart && <TitleCard onMetot={addMetot} />}
       </div>
     </StartStore.Provider>
   );

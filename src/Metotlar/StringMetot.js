@@ -139,10 +139,6 @@ const String = [
     id: "toString",
     title: "toString",
   },
-  {
-    id: "Burası son",
-    title: "toString",
-  },
 ];
 
 export default String;
