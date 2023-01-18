@@ -19,6 +19,7 @@ function App() {
     setHeader(props);
   };
   const addMetot = (props) => {
+    console.log(props)
     setItem(props);
   };
 

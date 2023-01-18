@@ -1,4 +1,56 @@
 .bodd {
   width: 80%;
   height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.card {
+  margin-left: 10%;
+}
+
+.title {
+  color: #20232a;
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 3%;
+}
+
+.paragraph {
+  line-height: 2.5rem;
+  font-size: 1.2rem;
+}
+
+.syntax {
+  color: white;
+  background-color: #282c34;
+  width: max-content;
+  border-radius: 10px;
+  padding: 30px 20% 30px 20px;
+  margin-top: 5%;
+  font-size: 1.1rem;
+}
+
+.valout {
+  color: white;
+  background-color: #282c34;
+  width: max-content;
+  border-radius: 10px;
+  padding: 30px 25% 30px 20px;
+  margin-top: 5%;
+}
+
+.value{
+  margin-bottom: 5%;
+  font-size: 1.1rem;
+}
+
+.output{
+  margin-bottom: 20px;
+  
+ 
+}
+
+.childoutput{
+  font-size: 1.1rem;
 }

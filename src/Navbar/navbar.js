@@ -1,4 +1,5 @@
 import { useContext, useEffect, useRef, useState } from "react";
+import Search from "../Search/Search";
 import StartStore from "../store/store";
 import styles from "./navbar.module.css";
 
@@ -38,10 +39,7 @@ const Navbar = (props) => {
     <nav className={styles.navbar}>
       <div className={styles.name}>Javascript D.</div>
       {ctx.isStart && (
-        <div className={styles.inputwrapper}>
-          <input className={styles.search} type="text" placeholder="Ara" />
-          <i className={styles.icon}></i>
-        </div>
+          <Search/>
       )}
 
       {ctx.isStart && (
