@@ -2,7 +2,8 @@ import React from "react";
 
 const StartStore = React.createContext({
 
-    isStart: false
+    isStart: false,
+    metotlar: []
 })
 
 export const StartcontextProvider = (props) =>{
