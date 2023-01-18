@@ -58,7 +58,13 @@
   color: white;
 }
 
-.navbar a:hover,
-.navbar a:active {
+.navbar button:hover,
+.navbar button:active {
   color: #f3cafb;
+}
+
+.bar{
+  width: 100%;
+  height: 1px;
+  background-color: #f3cafb;
 }

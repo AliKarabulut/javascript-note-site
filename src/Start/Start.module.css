@@ -5,7 +5,7 @@ p{
     
 }
 
-button{
+.startButton{
     position: absolute;
     border: 0px;
     border-radius: 10px;
@@ -20,7 +20,7 @@ button{
     transition: all .5s ;
 }
 
-button:hover{
+.startButton:hover{
     cursor:pointer;
     box-shadow: 0px 0px 20px 4px #20232A;
 }

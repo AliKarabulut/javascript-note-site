@@ -15,17 +15,12 @@ const Navbar = (props) => {
       )}
 
       {ctx.isStart && (
-        <ul>
-          <li>
-            <a href="/">String</a>
-          </li>
-          <li>
-            <a href="/">Number</a>
-          </li>
-          <li>
-            <a href="/">Array</a>
-          </li>
-        </ul>
+        <div>
+          <button>String</button>
+          <button>Number</button>
+          <button>Array</button>
+          <div className={styles.bar}></div>
+        </div>
       )}
     </nav>
   );
