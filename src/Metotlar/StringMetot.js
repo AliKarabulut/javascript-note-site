@@ -8,7 +8,6 @@ const String = [
       "Bir tam sayı değeri alır ve stringte karşılık gelen değeri döndürür.",
       "Verilen değer bulunamazsa `undefinied` döndürür.",
     ],
-
     output: [
       ["pangram.at(5)", "//Çıktı: a"],
       ["pangram.at(-5)", "//Çıktı: e"],

@@ -1,68 +1,52 @@
-const Number = [
+const NumberMetot = [
   {
     id: "Number()",
     title: "Number()",
+    description:
+      "Her hangi bir veri türünü sayıya çevirmek için kullanırız. Örneğin Number('5') çıktısı 5, Number(true) çıktısı 1, Number('5a') çıktısı NaN olacaktır.",
   },
   {
-    id: "Number.isFinite()",
-    title: "Number.isFinite()",
+    id: "Number.isFinite",
+    title: "Number.isFinite",
+    description:
+      "Yapılan sayısal işlemin sonucunun sonlu olup olmadığını kontrol eder. Sonlu ise true, sonlu değilse false döndürür.",
   },
   {
-    id: "Number.isInteger()",
-    title: "Number.isInteger()",
+    id: "Number.isInteger",
+    title: "Number.isInteger",
+    description:
+      "Yapılan sayısal işlemin sonucunun ya da verilen değerin tam sayı olup olmadığını kontrol eder. Tam sayı ise true, değilse false döndürür.",
   },
   {
-    id: "Number.isSafeInteger()",
-    title: "Number.isSafeInteger()",
+    id: "Number.isSafeInteger",
+    title: "Number.isSafeInteger",
+    description:
+      "Sayısal değerin güvenilir olup olmadığını kontrol eder. Güvenli bir tam sayı ise true, değilse false döndürür. Javascriptte güvenli tam sayılar -2^53 +1 ile 2^53 -1 arasındadır.",
   },
   {
     id: "Number.MAX_SAFE_INTEGER",
     title: "Number.MAX_SAFE_INTEGER",
+    description:
+      "En büyük güvenilir tam sayıyı temsil eder. Örneğin Number.MAX_SAFE_INTEGER çıktısı 9007199254740991 olacaktır.",
   },
   {
     id: "Number.MAX_VALUE",
     title: "Number.MAX_VALUE",
+    description:
+      "Javascriptte gösterilebilen en büyük sayısal değeri temsil eder. Değer 1.79E+308 yani 1,7976931348623157 x 10^308'dir.",
   },
   {
     id: "Number.MIN_SAFE_INTEGER",
     title: "Number.MIN_SAFE_INTEGER",
+    description:
+      "En küçük güvenilir tam sayıyı temsil eder. Örneğin Number.MIN_SAFE_INTEGER çıktısı -9007199254740991 olacaktır.",
   },
   {
     id: "Number.MIN_VALUE",
     title: "Number.MIN_VALUE",
-  },
-  {
-    id: "Number.POSITIVE_INFINITY",
-    title: "Number.POSITIVE_INFINITY",
-  },
-  {
-    id: "Number.NEGATIVE_INFINITY",
-    title: "Number.NEGATIVE_INFINITY",
-  },
-  {
-    id: "parseFloat()",
-    title: "parseFloat()",
-  },
-  {
-    id: "parseInt()",
-    title: "parseInt()",
-  },
-  {
-    id: "toFixed()",
-    title: "toFixed()",
-  },
-  {
-    id: "toLocaleString()",
-    title: "toLocaleString()",
-  },
-  {
-    id: "toPrecision()",
-    title: "toPrecision()",
-  },
-  {
-    id: "toString()",
-    title: "toString()",
+    description:
+      "Javascriptte pozitif sıfıra en yakın sayıyı temsil eder. Değer 5e-324 yani 2^-1074'dür.",
   },
 ];
 
-export default Number
+export default NumberMetot

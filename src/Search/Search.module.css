@@ -1,3 +1,9 @@
+.wrapper{
+  width: 22%;
+  display: flex;
+  flex-direction: row;
+
+}
 .inputwrapper {
   display: flex;
   align-items: center;
@@ -7,7 +13,7 @@
 }
 
 .search {
-  width: 300px;
+  width: 100%;
   height: 20px;
   background: #ffffff;
   border: 0px;

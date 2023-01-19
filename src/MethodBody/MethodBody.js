@@ -15,7 +15,7 @@ const MethodBody = (props) => {
 
           <div className={styles.syntax}>
             <p>{"Syntax => {"}</p>
-            <p>{ctx.metotlar.syntax?.map(el => (<p style={{"margin-left":"5px"}}>{el}</p>))}</p>
+            <p>{ctx.metotlar.syntax?.map(el => (<p>{el}</p>))}</p>
             <p>{"}"}</p>
           </div>
           <div className={styles.valout}>

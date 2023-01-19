@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import StringMetot from "../Metotlar/StringMetot";
 import NumberMetot from "../Metotlar/NumberMetot";
 import ArrayMetot from "../Metotlar/ArrayMetot";
@@ -13,6 +13,12 @@ const TitleCard = (props) => {
     props.onMetot(item);
 
   };
+
+  useEffect(() => {
+    props.onMetot(StringMetot[0])
+  
+  }, [])
+  
   return (
     <div className={styles.card}>
       {ctx.metotHeader === "StringMetot" && StringMetot.map((is) => (

@@ -1,26 +1,28 @@
 .navbar {
-  height: 40px;
+  height: 45px;
   background-color: #20232a;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   position: relative;
 }
 
 .name {
   font-size: 1.3rem;
   color: white;
+  margin-left: 8%;
 }
 
 .blist {
   display: flex;
   align-items: center;
   gap: 15px;
+  margin-right: 5% ;
 }
 
 .bar {
-  height: 1px;
+  height: 1.5px;
   background-color: #f3cafb;
   position: absolute;
   top: var(--top);
