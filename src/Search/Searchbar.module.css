@@ -1,9 +1,14 @@
 .listWrapper{
     position: absolute;
     width: 100%;
+    border: 1px solid #F7F7F7;
+    border-radius: 0px 0px 5px 5px;
 }
 
 .list{
-    background-color: rgb(217, 87, 87);
-
+    background-color: #fff;
+    border-bottom: 1px solid #F7F7F7;
+    padding: 5px 10px;
 }
+
+.list:hover{cursor: pointer;}
