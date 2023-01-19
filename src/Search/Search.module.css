@@ -1,15 +1,23 @@
 .wrapper{
   width: 22%;
-  display: flex;
-  flex-direction: row;
+  position: relative;
 
 }
+
 .inputwrapper {
   display: flex;
   align-items: center;
   background: #ffffff;
-  border-radius: 5px;
   padding: 0px 10px 0px 10px;
+}
+
+.borderFull{
+  border-radius: 5px;
+
+}
+
+.borderHalf{
+  border-radius: 5px 5px 0px 0px;
 }
 
 .search {
@@ -17,8 +25,8 @@
   height: 20px;
   background: #ffffff;
   border: 0px;
-  border-radius: 5px;
 }
+
 .search:focus {
   outline: none;
 }

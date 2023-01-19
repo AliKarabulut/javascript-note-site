@@ -1,0 +1,9 @@
+.listWrapper{
+    position: absolute;
+    width: 100%;
+}
+
+.list{
+    background-color: rgb(217, 87, 87);
+
+}
