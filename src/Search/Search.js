@@ -25,7 +25,7 @@ const Search = (props) => {
             setTimeout(() => {
               setIsFocused(false)
             }, 100);
-            
+            ;
           }}
           className={styles.search}
           value={inputVal}
