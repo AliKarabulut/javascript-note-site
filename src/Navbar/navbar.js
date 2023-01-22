@@ -21,6 +21,7 @@ const Navbar = (props) => {
   const ref = useRef();
 
   useEffect(() => {
+    const handleResize = () => {
     if (ctx.isStart) {
       const el = ref.current.querySelector(`.${styles.active}`);
       const { top, width, height, bottom } = el.getBoundingClientRect();
@@ -33,6 +34,11 @@ const Navbar = (props) => {
         bottom,
       });
     }
+  }
+  window.addEventListener('resize', handleResize);
+  return () => {
+      window.removeEventListener('resize', handleResize);
+  }
   }, [ctx.isStart]);
 
   return (

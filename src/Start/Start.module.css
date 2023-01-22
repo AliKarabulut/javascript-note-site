@@ -1,26 +1,33 @@
-.startP{
-    margin-top: 15%;
-    font-size: 1.5rem;
+.startWrapper {
+  width: 100%;
 
-    
+  /* top: 50%; */
+  transform: translateY(50%);
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+.startP {
+  margin-top: 15%;
+  font-size: 1.5rem;
+  padding: 0px 5%;
+  text-align: justify;
 }
 
-.startButton{
-    position: absolute;
-    border: 0px;
-    border-radius: 10px;
-    background-color: #20232A;
-    color: white;
-    width: 150px;
-    height: 40px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%);
-    font-size: 1.2rem;
-    transition: all .5s ;
+.startButton {
+  margin-top: 50px;
+  border: 0px;
+  border-radius: 10px;
+  background-color: #20232a;
+  color: white;
+  width: 150px;
+  height: 40px;
+  font-size: 1.2rem;
+  transition: all 0.5s;
 }
 
-.startButton:hover{
-    cursor:pointer;
-    box-shadow: 0px 0px 20px 4px #20232A;
+.startButton:hover {
+  cursor: pointer;
+  box-shadow: 0px 0px 20px 4px #20232a;
 }
