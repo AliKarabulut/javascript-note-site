@@ -1,4 +1,5 @@
 import { useContext, useEffect, useRef, useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 import Search from "../Search/Search";
 import StartStore from "../store/store";
 import styles from "./navbar.module.css";
@@ -22,31 +23,33 @@ const Navbar = (props) => {
 
   useEffect(() => {
     const handleResize = () => {
-    if (ctx.isStart) {
-      const el = ref.current.querySelector(`.${styles.active}`);
-      const { top, width, height, bottom } = el.getBoundingClientRect();
-      const left = el.offsetLeft;
-      setPosition({
-        left,
-        top,
-        width,
-        height,
-        bottom,
-      });
-    }
-  }
-  window.addEventListener('resize', handleResize);
-  return () => {
-      window.removeEventListener('resize', handleResize);
-  }
+      if (ctx.isStart) {
+        const el = ref.current.querySelector(`.${styles.active}`);
+        const { top, width, height, bottom } = el.getBoundingClientRect();
+        const left = el.offsetLeft;
+        setPosition({
+          left,
+          top,
+          width,
+          height,
+          bottom,
+        });
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, [ctx.isStart]);
 
+  const navRef = useRef();
+  const showNavBar = () => {
+    navRef.current.classList.toggle(styles["responsive_nav"]);
+  };
   return (
-    <nav className={styles.navbar}>
+    <header className={styles.navbar}>
       <div className={styles.name}>Javascript D.</div>
-      {ctx.isStart && (
-          <Search/>
-      )}
+      {ctx.isStart && <Search />}
 
       {ctx.isStart && (
         <div className={styles.blist} ref={ref}>
@@ -61,30 +64,46 @@ const Navbar = (props) => {
               }}
             ></div>
           )}
+          <nav ref={navRef}>
+            <button
+              id="StringMetot"
+              onClick={clickHandler}
+              className={styles.navButton + " " + styles.active}
+            >
+              String
+            </button>
+            <button
+              id="NumberMetot"
+              onClick={clickHandler}
+              className={styles.navButton}
+            >
+              Number
+            </button>
+            <button
+              id="ArrayMetot"
+              onClick={clickHandler}
+              className={styles.navButton}
+            >
+              Array
+            </button>
+            <button
+              className={styles["nav-btn"] +" "+ styles["nav-close-btn"]}
+              onClick={showNavBar}
+            >
+              {" "}
+              <FaTimes />{" "}
+            </button>
+          </nav>
           <button
-            id="StringMetot"
-            onClick={clickHandler}
-            className={styles.navButton + " " + styles.active}
-          >
-            String
-          </button>
-          <button
-            id="NumberMetot"
-            onClick={clickHandler}
-            className={styles.navButton}
-          >
-            Number
-          </button>
-          <button
-            id="ArrayMetot"
-            onClick={clickHandler}
-            className={styles.navButton}
-          >
-            Array
-          </button>
+              className={styles["nav-btn"]}
+              onClick={showNavBar}
+            >
+              {" "}
+              <FaBars />{" "}
+            </button>
         </div>
       )}
-    </nav>
+    </header>
   );
 };
 

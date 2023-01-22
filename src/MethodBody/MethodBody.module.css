@@ -28,22 +28,25 @@
   border-radius: 10px;
   padding: 30px 20% 30px 20px;
   margin-top: 5%;
+  
+  
 }
 
 .syntax p {
   font-size: 1.1rem;
-  margin-bottom: 0.1rem;
+  margin-bottom: .1rem;
 }
 
 .valout {
   color: white;
   background-color: #282c34;
-  width: 100%;
+  width: max-content;
   border-radius: 10px;
-  padding: 30px 100px 30px 20px;
+  padding: 30px 25% 30px 20px;
   margin-top: 5%;
   transition: all 0.3s ease;
 }
+
 
 @media screen and (max-width: 760px) {
   .valout {
@@ -51,15 +54,17 @@
   }
 }
 
-.value {
+.value{
   margin-bottom: 5%;
   font-size: 1.1rem;
 }
 
-.output {
+.output{
   margin-bottom: 20px;
+  
+ 
 }
 
-.childoutput {
+.childoutput{
   font-size: 1.1rem;
 }
