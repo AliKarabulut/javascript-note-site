@@ -19,7 +19,7 @@ function App() {
     setHeader(props);
   };
   const addMetot = (props) => {
-    console.log(props)
+    console.log(props);
     setItem(props);
   };
 
@@ -29,10 +29,12 @@ function App() {
     >
       <Navbar onHeader={addHeader}></Navbar>
       {!isStart && <Start onStart={startHandler} />}
-      <div className={styles.wrapper}>
-        {isStart && <MethodBody></MethodBody>}
-        {isStart && <TitleCard onMetot={addMetot} />}
-      </div>
+      {isStart && (
+        <div className={styles.wrapper}>
+          <MethodBody />
+          <TitleCard onMetot={addMetot} />
+        </div>
+      )}
     </StartStore.Provider>
   );
 }
