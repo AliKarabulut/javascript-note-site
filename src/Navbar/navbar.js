@@ -22,32 +22,49 @@ const Navbar = (props) => {
   const ref = useRef();
 
   useEffect(() => {
-    const handleResize = () => {
-      if (ctx.isStart) {
-        const el = ref.current.querySelector(`.${styles.active}`);
-        const { top, width, height, bottom } = el.getBoundingClientRect();
-        const left = el.offsetLeft;
-        setPosition({
-          left,
-          top,
-          width,
-          height,
-          bottom,
-        });
-      }
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    if (ctx.isStart) {
+      const el = ref.current.querySelector(`.${styles.active}`);
+      const { top, width, height, bottom } = el.getBoundingClientRect();
+      const left = el.offsetLeft;
+      setPosition({
+        left,
+        top,
+        width,
+        height,
+        bottom,
+      });
+    }
   }, [ctx.isStart]);
+
+  // Pencere resize olduğunda barın pozisyonunu değiştirmek için kod parçası
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     if (ctx.isStart) {
+  //       const el = ref.current.querySelector(`.${styles.active}`);
+  //       const { top, width, height, bottom } = el.getBoundingClientRect();
+  //       const left = el.offsetLeft;
+  //       setPosition({
+  //         left,
+  //         top,
+  //         width,
+  //         height,
+  //         bottom,
+  //       });
+  //     }
+  //   };
+  //   window.addEventListener("resize", handleResize);
+  //   return () => {
+  //     window.removeEventListener("resize", handleResize);
+  //   };
+  // }, [ctx.isStart]);
 
   const navRef = useRef();
   const showNavBar = () => {
     navRef.current.classList.toggle(styles["responsive_nav"]);
   };
+
   return (
-    <header className={styles.navbar}>
+    <nav className={styles.navbar}>
       <div className={styles.name}>Javascript D.</div>
       {ctx.isStart && <Search />}
 
@@ -64,46 +81,43 @@ const Navbar = (props) => {
               }}
             ></div>
           )}
-          <nav ref={navRef}>
+          <div className={styles.metNames +" " + styles.responsive_nav} ref={navRef}>
             <button
               id="StringMetot"
               onClick={clickHandler}
-              className={styles.navButton + " " + styles.active}
+              className={styles.metButton + " " + styles.active}
             >
               String
             </button>
             <button
               id="NumberMetot"
               onClick={clickHandler}
-              className={styles.navButton}
+              className={styles.metButton}
             >
               Number
             </button>
             <button
               id="ArrayMetot"
               onClick={clickHandler}
-              className={styles.navButton}
+              className={styles.metButton}
             >
               Array
             </button>
             <button
-              className={styles["nav-btn"] +" "+ styles["nav-close-btn"]}
+              className={styles["nav-btn"] + " " + styles["nav-close-btn"]}
               onClick={showNavBar}
             >
               {" "}
               <FaTimes />{" "}
             </button>
-          </nav>
-          <button
-              className={styles["nav-btn"]}
-              onClick={showNavBar}
-            >
-              {" "}
-              <FaBars />{" "}
-            </button>
+          </div>
+          <button className={styles["nav-btn"]} onClick={showNavBar}>
+            {" "}
+            <FaBars />{" "}
+          </button>
         </div>
       )}
-    </header>
+    </nav>
   );
 };
 

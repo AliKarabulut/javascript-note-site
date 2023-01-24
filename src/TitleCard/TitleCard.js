@@ -5,31 +5,42 @@ import ArrayMetot from "../Metotlar/ArrayMetot";
 import StartStore from "../store/store";
 import styles from "./TitleCard.module.css";
 
-
 const TitleCard = (props) => {
   const ctx = useContext(StartStore);
-  console.log(ctx.metotHeader)
+  console.log(ctx.metotHeader);
   const addToMethod = (item) => {
     props.onMetot(item);
-
   };
 
   useEffect(() => {
-    props.onMetot(StringMetot[0])
-  
-  }, [])
-  
+    props.onMetot(StringMetot[0]);
+  }, []);
+
   return (
     <div className={styles.card}>
-      {ctx.metotHeader === "StringMetot" && StringMetot.map((is) => (
-        <div onClick={addToMethod.bind(null, is)}>{is.title}</div>
-      ))}
-            {ctx.metotHeader === "NumberMetot" && NumberMetot.map((is) => (
-        <div onClick={addToMethod.bind(null, is)}>{is.title}</div>
-      ))}
-            {ctx.metotHeader === "ArrayMetot" && ArrayMetot.map((is) => (
-        <div onClick={addToMethod.bind(null, is)}>{is.title}</div>
-      ))}
+      <div className={styles.innerCard}>
+        <ol>
+          {ctx.metotHeader === "StringMetot" &&
+            StringMetot.map((is) => (
+              <li className={styles.cardP} onClick={addToMethod.bind(null, is)}>
+                {" "}
+                {is.title}
+              </li>
+            ))}
+          {ctx.metotHeader === "NumberMetot" &&
+            NumberMetot.map((is) => (
+              <li className={styles.cardP} onClick={addToMethod.bind(null, is)}>
+                {is.title}
+              </li>
+            ))}
+          {ctx.metotHeader === "ArrayMetot" &&
+            ArrayMetot.map((is) => (
+              <li className={styles.cardP} onClick={addToMethod.bind(null, is)}>
+                {is.title}
+              </li>
+            ))}
+        </ol>
+      </div>
     </div>
   );
 };

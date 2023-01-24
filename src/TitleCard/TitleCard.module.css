@@ -1,14 +1,29 @@
-.card{
-    width: 20%;
-    padding: 20px 0px 20px 20px;
-    line-height: 2rem;
-    font-weight:500;
-    height: 100% max-content;
-    background-color: #F7F7F7;
-    position: relative;
-    left: 0px;
+.card {
+  position: fixed;
+  top: 45px;
+  right: 0px;
+  width: 20%;
+  height: calc(100vh - 45px);
+  background-color: #f7f7f7;
+  overflow: hidden;
+}
+.cardP {
+  line-height: 2.2rem;
+  font-size: 1.2rem;
 }
 
-.card div:hover{
-    cursor: pointer;
+
+.innerCard {
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100%;
+  padding: 20px 350px 20px 40px;
+}
+
+.card div:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 650px) {
 }

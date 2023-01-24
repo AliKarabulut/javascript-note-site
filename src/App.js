@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import styles from "./App.module.css";
 import MethodBody from "./MethodBody/MethodBody";
 import Navbar from "./Navbar/navbar";
@@ -30,10 +30,10 @@ function App() {
       <Navbar onHeader={addHeader}></Navbar>
       {!isStart && <Start onStart={startHandler} />}
       {isStart && (
-        <div className={styles.wrapper}>
+        <Fragment >
           <MethodBody />
           <TitleCard onMetot={addMetot} />
-        </div>
+        </Fragment>
       )}
     </StartStore.Provider>
   );
