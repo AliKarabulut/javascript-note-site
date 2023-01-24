@@ -81,7 +81,7 @@ const Navbar = (props) => {
               }}
             ></div>
           )}
-          <div className={styles.metNames +" " + styles.responsive_nav} ref={navRef}>
+          <div className={styles.metNames} ref={navRef}>
             <button
               id="StringMetot"
               onClick={clickHandler}

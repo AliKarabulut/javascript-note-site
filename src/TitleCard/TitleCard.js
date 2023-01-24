@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useRef } from "react";
 import StringMetot from "../Metotlar/StringMetot";
 import NumberMetot from "../Metotlar/NumberMetot";
 import ArrayMetot from "../Metotlar/ArrayMetot";
@@ -16,8 +16,12 @@ const TitleCard = (props) => {
     props.onMetot(StringMetot[0]);
   }, []);
 
+  const navRef = useRef();
+  const showNavBar = () => {
+    navRef.current.classList.toggle(styles["cardT"]);
+  };
   return (
-    <div className={styles.card}>
+    <div className={styles.card} ref={navRef} onClick={showNavBar}>
       <div className={styles.innerCard}>
         <ol>
           {ctx.metotHeader === "StringMetot" &&
