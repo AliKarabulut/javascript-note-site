@@ -1,5 +1,4 @@
 import { Fragment, useState } from "react";
-import styles from "./App.module.css";
 import MethodBody from "./MethodBody/MethodBody";
 import Navbar from "./Navbar/navbar";
 import Start from "./Start/Start";

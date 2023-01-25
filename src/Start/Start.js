@@ -9,7 +9,7 @@ const Start = (props) => {
         gördüğünüz ya da eklemek istediğiniz şeyler için githubdan destek
         atabilirsiniz :)
       </p>
-      <button className={styles.startButton} onClick={props.onStart}>
+      <button className={styles.btn +" "+ styles.b13} onClick={props.onStart}>
         Hadi Başlayalım.
       </button>
     </div>
