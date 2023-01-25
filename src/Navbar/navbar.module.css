@@ -78,7 +78,7 @@
   }
 
   .responsive_nav {
-    animation: anna 1s;
+    animation: anna .4s;
     display: flex;
   }
 

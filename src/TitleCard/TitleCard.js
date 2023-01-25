@@ -9,7 +9,7 @@ const TitleCard = (props) => {
   //teleefon uyumluluğu
   const [divRight, setDivRight] = useState(0);
   const [fPosition, setFPosition] = useState(0);
-  const [oldPosition, setoldPosition] = useState(-220);
+  const [oldPosition, setoldPosition] = useState(-570);
   const [isMouseDown, setIsMouseDown] = useState(false);
   const navRef = useRef();
   const handleTouchStart = (e) => {
@@ -31,18 +31,18 @@ const TitleCard = (props) => {
     setDivRight(0);
 
     if (divRight > 10) {
-      setoldPosition(0);
+      setoldPosition(-350);
       navRef.current.classList.toggle(styles.animation);
 
       console.log(navRef);
     } else {
-      setoldPosition(-220);
+      setoldPosition(-570);
       navRef.current.classList.toggle(styles.animation);
     }
   };
 
   const handleTouchClose = () => {
-    setoldPosition(-220);
+    setoldPosition(-570);
   };
 
   //burda bitti
@@ -64,7 +64,7 @@ const TitleCard = (props) => {
     const handleHover = () => {
       navRef.current.addEventListener("mouseenter", () => {
         console.log("nan");
-        navRef.current.style.right = "0";
+        navRef.current.style.right = "-350px";
       });
       navRef.current.addEventListener("mouseleave", () => {
         console.log("nansdsd");
