@@ -18,6 +18,7 @@ const Navbar = (props) => {
       height,
       bottom,
     });
+    navRef.current.classList.toggle(styles["responsive_nav"])
   };
   const ref = useRef();
 

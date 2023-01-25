@@ -1,0 +1,21 @@
+.animation {
+  transition: 0.3s all;
+}
+
+.card {
+  position: fixed;
+  top: 45px;
+  right: 0px;
+  width: 20%;
+  min-width: 240px;
+  height: calc(100vh - 45px);
+  background-color: #f7f7f7;
+  overflow: hidden;
+}
+
+@media (max-width: 650px) {
+  .card {
+    right: var(--right);
+  }
+
+}
