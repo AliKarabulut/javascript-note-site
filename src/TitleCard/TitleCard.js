@@ -57,29 +57,28 @@ const TitleCard = (props) => {
     props.onMetot(StringMetot[0]);
   }, []);
 
-
   //pc de hover mobilde no
 
   useEffect(() => {
     const query = window.matchMedia("(pointer: fine)");
     const handleHover = () => {
-      
       navRef.current.addEventListener("mouseenter", () => {
-        console.log("nan")
+        console.log("nan");
         navRef.current.style.right = "0";
-    });
-    navRef.current.addEventListener("mouseleave", () => {
-      console.log("nansdsd")
-      navRef.current.style.right = "";
-    });
-        
+      });
+      navRef.current.addEventListener("mouseleave", () => {
+        console.log("nansdsd");
+        navRef.current.style.right = "";
+      });
+      navRef.current.addEventListener("click", () => {
+        console.log("nansdsd");
+        navRef.current.style.right = "";
+      });
     };
     if (query.matches) {
-        handleHover();
+      handleHover();
     }
-
-
-}, []);
+  }, []);
 
   return (
     <div

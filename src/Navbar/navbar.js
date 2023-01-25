@@ -38,26 +38,26 @@ const Navbar = (props) => {
   }, [ctx.isStart]);
 
   // Pencere resize olduğunda barın pozisyonunu değiştirmek için kod parçası
-  // useEffect(() => {
-  //   const handleResize = () => {
-  //     if (ctx.isStart) {
-  //       const el = ref.current.querySelector(`.${styles.active}`);
-  //       const { top, width, height, bottom } = el.getBoundingClientRect();
-  //       const left = el.offsetLeft;
-  //       setPosition({
-  //         left,
-  //         top,
-  //         width,
-  //         height,
-  //         bottom,
-  //       });
-  //     }
-  //   };
-  //   window.addEventListener("resize", handleResize);
-  //   return () => {
-  //     window.removeEventListener("resize", handleResize);
-  //   };
-  // }, [ctx.isStart]);
+  useEffect(() => {
+    const handleResize = () => {
+      if (ctx.isStart) {
+        const el = ref.current.querySelector(`.${styles.active}`);
+        const { top, width, height, bottom } = el.getBoundingClientRect();
+        const left = el.offsetLeft;
+        setPosition({
+          left,
+          top,
+          width,
+          height,
+          bottom,
+        });
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [ctx.isStart]);
 
   const navRef = useRef();
   const showNavBar = () => {

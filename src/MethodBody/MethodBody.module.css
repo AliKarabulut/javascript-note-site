@@ -7,18 +7,21 @@
 }
 
 .card {
-  margin-left: 8%;
+  margin: 0% 8%;
+  width: 60%;
+  
 }
 
 .title {
   color: #20232a;
-  font-size: 3rem;
+  font-size: 3.5rem;
   font-weight: 600;
+  margin-bottom: 20px;
 }
 
 .paragraph {
   line-height: 2.5rem;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 .syntax {
@@ -26,7 +29,8 @@
   background-color: #282c34;
   width: max-content;
   border-radius: 10px;
-  padding: 30px 20% 30px 20px;
+  padding: 30px 40px 30px 20px;
+  margin-top: 20px;
 
 }
 
@@ -38,25 +42,33 @@
 .valout {
   color: white;
   background-color: #282c34;
-  width: 100%;
+  width: 600px;
   border-radius: 10px;
-  padding: 30px 25% 30px 20px;
+  padding: 30px 40px 30px 20px;
   transition: all 0.3s ease;
+  margin-top: 20px;
 }
 
-/* @media screen and (max-width: 760px) {
-  .valout {
-    padding: 30px;
+@media screen and (max-width: 750px) {
+  .card{
+    width: 100%;
   }
-} */
+  
+  .valout {
+    width: 100%;
+    padding: 30px 20px 30px 20px;
+    margin-bottom: 20px;
+  }
+}
 
 .value {
-  /* margin-bottom: 5%; */
+  margin-bottom: 20px;
   font-size: 1.1rem;
+  
 }
 
 .output {
-  /* margin-bottom: 20px; */
+  margin-bottom: 20px;
 }
 
 .childoutput {

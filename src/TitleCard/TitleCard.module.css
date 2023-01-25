@@ -21,17 +21,14 @@
   overflow-y: auto;
 }
 
-.innerCard:hover{
+.innerCard:hover {
   cursor: pointer;
 }
 
-
-@media (max-width: 650px) {
+@media (max-width: 750px) {
   .card {
     right: var(--right);
   }
-
-
 }
 
 .animation {
