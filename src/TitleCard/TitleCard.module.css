@@ -1,8 +1,7 @@
 .card {
   position: fixed;
   top: 45px;
-  right: -350px;
-  width: 600px;
+  right: 0px;
   min-width: 240px;
   height: calc(100vh - 45px);
   background-color: #f7f7f7;

@@ -9,9 +9,11 @@ const TitleCard = (props) => {
   //teleefon uyumluluğu
   const [divRight, setDivRight] = useState(0);
   const [fPosition, setFPosition] = useState(0);
-  const [oldPosition, setoldPosition] = useState(-570);
+  const [oldPosition, setoldPosition] = useState(-220);
   const [isMouseDown, setIsMouseDown] = useState(false);
   const navRef = useRef();
+
+  
   const handleTouchStart = (e) => {
     setIsMouseDown(true);
     setFPosition(e.touches[0].clientX);
@@ -23,6 +25,19 @@ const TitleCard = (props) => {
       return;
     }
     setDivRight(fPosition - e.touches[0].clientX);
+    // Sidebar açıkken sola doğru kaydıramamak için
+    if (oldPosition === 0 && divRight > 0) {
+      setIsMouseDown(false);
+      setDivRight(0);
+      setoldPosition(0);
+    }
+
+    //Sidebarı açarken tamamen açıldığında daha fazla sola kaymasını engellemek için
+    if (divRight > 220) {
+      setIsMouseDown(false);
+      setDivRight(0);
+      setoldPosition(0);
+    }
   };
 
   const handleTouchEnd = (e) => {
@@ -30,19 +45,21 @@ const TitleCard = (props) => {
     setoldPosition(oldPosition + divRight);
     setDivRight(0);
 
-    if (divRight > 10) {
-      setoldPosition(-350);
+    // ilk if bloğunun amacı animasyon classının buga girmesini engellemek
+    if (divRight === 0) {
+      setoldPosition(0);
       navRef.current.classList.toggle(styles.animation);
-
-      console.log(navRef);
+    } else if (divRight > 10) {
+      setoldPosition(0);
+      navRef.current.classList.toggle(styles.animation);
     } else {
-      setoldPosition(-570);
+      setoldPosition(-220);
       navRef.current.classList.toggle(styles.animation);
     }
   };
 
   const handleTouchClose = () => {
-    setoldPosition(-570);
+    setoldPosition(-220);
   };
 
   //burda bitti
@@ -63,15 +80,12 @@ const TitleCard = (props) => {
     const query = window.matchMedia("(pointer: fine)");
     const handleHover = () => {
       navRef.current.addEventListener("mouseenter", () => {
-        console.log("nan");
-        navRef.current.style.right = "-350px";
+        navRef.current.style.right = "0";
       });
       navRef.current.addEventListener("mouseleave", () => {
-        console.log("nansdsd");
         navRef.current.style.right = "";
       });
       navRef.current.addEventListener("click", () => {
-        console.log("nansdsd");
         navRef.current.style.right = "";
       });
     };
