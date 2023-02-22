@@ -113,20 +113,20 @@ const TitleCard = (props) => {
       <div className={styles.innerCard} onClick={handleTouchClose}>
         {metot === "StringMetot" &&
           StringMetot.map((is, number) => (
-            <div className={styles.cardP} onClick={addToMethod.bind(null, is)}>
+            <div className={styles.cardP} onClick={addToMethod.bind(null, is)} key={number +1 }>
               {" "}
               {number + 1 + ". " + is.title}
             </div>
           ))}
         {metot === "NumberMetot" &&
           NumberMetot.map((is, number) => (
-            <div className={styles.cardP} onClick={addToMethod.bind(null, is)}>
+            <div className={styles.cardP} onClick={addToMethod.bind(null, is)} key={number +1 }>
               {number + 1 + ". " + is.title}
             </div>
           ))}
         {metot === "ArrayMetot" &&
           ArrayMetot.map((is, number) => (
-            <div className={styles.cardP} onClick={addToMethod.bind(null, is)}>
+            <div className={styles.cardP} onClick={addToMethod.bind(null, is)} key={number +1 }>
               {number + 1 + ". " + is.title}
             </div>
           ))}

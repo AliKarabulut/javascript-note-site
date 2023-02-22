@@ -9,15 +9,15 @@ const MethodBody = (props) => {
       {Object.values(metot).length > 0 && (
         <div className={styles.card}>
           <div className={styles.title}>{metot.id}</div>
-          {metot.paragraph?.map((item) => (
-            <div className={styles.paragraph}>{item}</div>
+          {metot.paragraph?.map((item, number) => (
+            <div className={styles.paragraph} key={number}>{item}</div>
           ))}
 
           <div className={styles.syntax}>
             <p>{"Syntax => {"}</p>
             <p>
-              {metot.syntax?.map((el) => (
-                <p>{el}</p>
+              {metot.syntax?.map((el , number) => (
+                <p key={number}>{el}</p>
               ))}
             </p>
             <p>{"}"}</p>
@@ -26,10 +26,10 @@ const MethodBody = (props) => {
             {" "}
             <div className={styles.value}>{metot.value}</div>
             <div>
-              {metot.output?.map((item) => (
-                <div className={styles.output}>
-                  {item.map((el) => (
-                    <div className={styles.childoutput}>{el}</div>
+              {metot.output?.map((item ,number) => (
+                <div className={styles.output}key={number} >
+                  {item.map((el,number) => (
+                    <div className={styles.childoutput} key={number}>{el}</div>
                   ))}
                 </div>
               ))}

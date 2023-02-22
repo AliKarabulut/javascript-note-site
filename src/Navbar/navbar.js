@@ -17,7 +17,6 @@ const Navbar = () => {
     const handleResize = () => {
       if (isLogin) {
         const el = navRef.current.querySelector(`#${metot}`);
-        console.log(el);
         const { top, width, height, bottom } = el.getBoundingClientRect();
         const left = el.offsetLeft;
         setPosition({
