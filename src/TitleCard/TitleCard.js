@@ -1,11 +1,15 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { metotActions } from "../store/store";
 import StringMetot from "../Metotlar/StringMetot";
 import NumberMetot from "../Metotlar/NumberMetot";
 import ArrayMetot from "../Metotlar/ArrayMetot";
-import StartStore from "../store/store";
 import styles from "./TitleCard.module.css";
 
 const TitleCard = (props) => {
+  const dispatch = useDispatch();
+  const metot = useSelector((state) => state.store.metotHeader);
+
   //teleefon uyumluluğu
   const [divRight, setDivRight] = useState(0);
   const [fPosition, setFPosition] = useState(0);
@@ -13,7 +17,6 @@ const TitleCard = (props) => {
   const [isMouseDown, setIsMouseDown] = useState(false);
   const navRef = useRef();
 
-  
   const handleTouchStart = (e) => {
     setIsMouseDown(true);
     setFPosition(e.touches[0].clientX);
@@ -64,16 +67,6 @@ const TitleCard = (props) => {
 
   //burda bitti
 
-  const ctx = useContext(StartStore);
-  console.log(ctx.metotHeader);
-  const addToMethod = (item) => {
-    props.onMetot(item);
-  };
-
-  useEffect(() => {
-    props.onMetot(StringMetot[0]);
-  }, []);
-
   //pc de hover mobilde no
 
   useEffect(() => {
@@ -94,6 +87,16 @@ const TitleCard = (props) => {
     }
   }, []);
 
+  const addToMethod = (e) =>{
+    dispatch(metotActions.addmetot(e))
+    
+
+  }
+
+  useEffect(() => {
+    dispatch(metotActions.addmetot(StringMetot[0]));
+  }, []);
+
   return (
     <div
       className={styles.card + " " + styles.animation}
@@ -110,22 +113,22 @@ const TitleCard = (props) => {
         {" "}
       </div>
       <div className={styles.innerCard} onClick={handleTouchClose}>
-        {ctx.metotHeader === "StringMetot" &&
+        {metot === "StringMetot" &&
           StringMetot.map((is, number) => (
-            <div className={styles.cardP} onClick={addToMethod.bind(null, is)}>
+            <div className={styles.cardP} onClick={addToMethod.bind(null,is)}>
               {" "}
               {number + 1 + ". " + is.title}
             </div>
           ))}
-        {ctx.metotHeader === "NumberMetot" &&
+        {metot === "NumberMetot" &&
           NumberMetot.map((is, number) => (
-            <div className={styles.cardP} onClick={addToMethod.bind(null, is)}>
+            <div className={styles.cardP} onClick={addToMethod.bind(null,is)}>
               {number + 1 + ". " + is.title}
             </div>
           ))}
-        {ctx.metotHeader === "ArrayMetot" &&
+        {metot === "ArrayMetot" &&
           ArrayMetot.map((is, number) => (
-            <div className={styles.cardP} onClick={addToMethod.bind(null, is)}>
+            <div className={styles.cardP} onClick={addToMethod.bind(null,is)}>
               {number + 1 + ". " + is.title}
             </div>
           ))}

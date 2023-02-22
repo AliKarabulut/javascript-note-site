@@ -1,40 +1,24 @@
-import { Fragment, useState } from "react";
+import { Fragment,  } from "react";
+import { useSelector } from "react-redux";
 import MethodBody from "./MethodBody/MethodBody";
 import Navbar from "./Navbar/navbar";
 import Start from "./Start/Start";
-import StartStore from "./store/store";
 import TitleCard from "./TitleCard/TitleCard";
 
 function App() {
-  const [isStart, setStart] = useState(false);
-  const [item, setItem] = useState([]);
-  const [header, setHeader] = useState("StringMetot");
-
-  const startHandler = () => {
-    setStart(true);
-  };
-
-  const addHeader = (props) => {
-    setHeader(props);
-  };
-  const addMetot = (props) => {
-    console.log(props);
-    setItem(props);
-  };
+  const isLogin = useSelector((state) => state.login.islogin);
 
   return (
-    <StartStore.Provider
-      value={{ isStart: isStart, metotlar: item, metotHeader: header }}
-    >
-      <Navbar onHeader={addHeader}></Navbar>
-      {!isStart && <Start onStart={startHandler} />}
-      {isStart && (
-        <Fragment >
+    <Fragment>
+      <Navbar></Navbar>
+      {!isLogin && <Start />}
+      {isLogin && (
+        <Fragment>
           <MethodBody />
-          <TitleCard onMetot={addMetot} />
+          <TitleCard />
         </Fragment>
       )}
-    </StartStore.Provider>
+    </Fragment>
   );
 }
 

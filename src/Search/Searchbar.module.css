@@ -12,3 +12,5 @@
 }
 
 .list:hover{cursor: pointer;}
+
+.selected{background-color: black;}

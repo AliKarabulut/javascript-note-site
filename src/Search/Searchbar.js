@@ -1,9 +1,21 @@
+import { useSelector, useDispatch } from "react-redux";
+import { metotActions } from "../store/store";
 import String from "../Metotlar/StringMetot";
 import Number from "../Metotlar/NumberMetot";
 import Array from "../Metotlar/ArrayMetot";
 import styles from "./Searchbar.module.css";
 
 const SearchBar = (props) => {
+  const dispatch = useDispatch();
+  const metot = useSelector((state) => state.store.metotHeader);
+  
+  const barClickHandler = e =>{
+    console.log(e)
+    dispatch(metotActions.addmetot(e))
+    dispatch(metotActions.addMetotHeader(e.name))
+    props.onInputVal(e.id)
+  }
+
   const { send } = props;
   const sendLower = send.toLowerCase();
   const filteredArray = [].concat(
@@ -19,7 +31,7 @@ const SearchBar = (props) => {
         for (let i = 0; i < 5 && i < filteredArray.length; i++) {
           components.push(
             <div
-              onClick={() => props.onInputVal(filteredArray[i].id)}
+              onClick={barClickHandler.bind(null,filteredArray[i] )}
               className={styles.list}
               key={i}
             >

@@ -1,7 +1,14 @@
-import { div } from "react";
+import { useDispatch } from "react-redux";
+import { loginActions } from "../store/login";
 import styles from "./Start.module.css";
 
-const Start = (props) => {
+const Start = () => {
+  const dispatch = useDispatch();
+
+  const loginHandler = () => {
+    dispatch(loginActions.login());
+  };
+
   return (
     <div className={styles.startWrapper}>
       <p className={styles.startP}>
@@ -9,7 +16,7 @@ const Start = (props) => {
         gördüğünüz ya da eklemek istediğiniz şeyler için githubdan destek
         atabilirsiniz :)
       </p>
-      <button className={styles.btn +" "+ styles.b13} onClick={props.onStart}>
+      <button className={styles.btn + " " + styles.b13} onClick={loginHandler}>
         Hadi Başlayalım.
       </button>
     </div>

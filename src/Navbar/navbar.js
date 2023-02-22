@@ -1,14 +1,17 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { metotActions } from "../store/store";
 import { FaBars, FaTimes } from "react-icons/fa";
+
 import Search from "../Search/Search";
-import StartStore from "../store/store";
 import styles from "./navbar.module.css";
 
-const Navbar = (props) => {
-  const ctx = useContext(StartStore);
+const Navbar = () => {
+  const dispatch = useDispatch();
+  const isLogin = useSelector((state) => state.login.islogin)
   const [position, setPosition] = useState("");
   const clickHandler = (e) => {
-    props.onHeader(e.target.id);
+    dispatch(metotActions.addMetotHeader(e.target.id));
     const { top, width, height, bottom } = e.target.getBoundingClientRect();
     const left = e.target.offsetLeft;
     setPosition({
@@ -18,12 +21,12 @@ const Navbar = (props) => {
       height,
       bottom,
     });
-    navRef.current.classList.toggle(styles["responsive_nav"])
+    navRef.current.classList.toggle(styles["responsive_nav"]);
   };
   const ref = useRef();
 
   useEffect(() => {
-    if (ctx.isStart) {
+    if (isLogin) {
       const el = ref.current.querySelector(`.${styles.active}`);
       const { top, width, height, bottom } = el.getBoundingClientRect();
       const left = el.offsetLeft;
@@ -35,12 +38,12 @@ const Navbar = (props) => {
         bottom,
       });
     }
-  }, [ctx.isStart]);
+  }, [isLogin]);
 
   // Pencere resize olduğunda barın pozisyonunu değiştirmek için kod parçası
   useEffect(() => {
     const handleResize = () => {
-      if (ctx.isStart) {
+      if (isLogin) {
         const el = ref.current.querySelector(`.${styles.active}`);
         const { top, width, height, bottom } = el.getBoundingClientRect();
         const left = el.offsetLeft;
@@ -57,7 +60,7 @@ const Navbar = (props) => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [ctx.isStart]);
+  }, [isLogin]);
 
   const navRef = useRef();
   const showNavBar = () => {
@@ -67,9 +70,9 @@ const Navbar = (props) => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.name}>Javascript D.</div>
-      {ctx.isStart && <Search />}
+      {isLogin && <Search />}
 
-      {ctx.isStart && (
+      {isLogin && (
         <div className={styles.blist} ref={ref}>
           {Object.values(position).length > 0 && (
             <div
