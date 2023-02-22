@@ -8,28 +8,18 @@ import styles from "./navbar.module.css";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const isLogin = useSelector((state) => state.login.islogin)
+  const isLogin = useSelector((state) => state.login.islogin);
+  const metot = useSelector((state) => state.store.metotHeader);
   const [position, setPosition] = useState("");
-  const clickHandler = (e) => {
-    dispatch(metotActions.addMetotHeader(e.target.id));
-    const { top, width, height, bottom } = e.target.getBoundingClientRect();
-    const left = e.target.offsetLeft;
-    setPosition({
-      left,
-      top,
-      width,
-      height,
-      bottom,
-    });
-    navRef.current.classList.toggle(styles["responsive_nav"]);
-  };
+  const navRef = useRef();
   const ref = useRef();
 
   useEffect(() => {
     if (isLogin) {
-      const el = ref.current.querySelector(`.${styles.active}`);
-      const { top, width, height, bottom } = el.getBoundingClientRect();
-      const left = el.offsetLeft;
+      const anan = navRef.current.querySelector(`#${metot}`);
+      console.log(anan);
+      const { top, width, height, bottom } = anan.getBoundingClientRect();
+      const left = anan.offsetLeft;
       setPosition({
         left,
         top,
@@ -38,31 +28,12 @@ const Navbar = () => {
         bottom,
       });
     }
-  }, [isLogin]);
+  }, [metot, isLogin, window]);
 
-  // Pencere resize olduğunda barın pozisyonunu değiştirmek için kod parçası
-  useEffect(() => {
-    const handleResize = () => {
-      if (isLogin) {
-        const el = ref.current.querySelector(`.${styles.active}`);
-        const { top, width, height, bottom } = el.getBoundingClientRect();
-        const left = el.offsetLeft;
-        setPosition({
-          left,
-          top,
-          width,
-          height,
-          bottom,
-        });
-      }
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [isLogin]);
+  const clickHandler = (e) => {
+    dispatch(metotActions.addMetotHeader(e.target.id));
+  };
 
-  const navRef = useRef();
   const showNavBar = () => {
     navRef.current.classList.toggle(styles["responsive_nav"]);
   };
