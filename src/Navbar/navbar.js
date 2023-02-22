@@ -40,6 +40,7 @@ const Navbar = () => {
 
   const clickHandler = (e) => {
     dispatch(metotActions.addMetotHeader(e.target.id));
+    navRef.current.classList.toggle(styles["responsive_nav"]);
   };
 
   const showNavBar = () => {
