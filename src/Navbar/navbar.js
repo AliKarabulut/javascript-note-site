@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { metotActions } from "../store/store";
 import { FaBars, FaTimes } from "react-icons/fa";
-
 import Search from "../Search/Search";
 import styles from "./navbar.module.css";
 
@@ -15,20 +14,29 @@ const Navbar = () => {
   const ref = useRef();
 
   useEffect(() => {
-    if (isLogin) {
-      const anan = navRef.current.querySelector(`#${metot}`);
-      console.log(anan);
-      const { top, width, height, bottom } = anan.getBoundingClientRect();
-      const left = anan.offsetLeft;
-      setPosition({
-        left,
-        top,
-        width,
-        height,
-        bottom,
-      });
-    }
-  }, [metot, isLogin, window]);
+    const handleResize = () => {
+      if (isLogin) {
+        const el = navRef.current.querySelector(`#${metot}`);
+        console.log(el);
+        const { top, width, height, bottom } = el.getBoundingClientRect();
+        const left = el.offsetLeft;
+        setPosition({
+          left,
+          top,
+          width,
+          height,
+          bottom,
+        });
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [metot, isLogin]);
 
   const clickHandler = (e) => {
     dispatch(metotActions.addMetotHeader(e.target.id));
@@ -60,7 +68,7 @@ const Navbar = () => {
             <button
               id="StringMetot"
               onClick={clickHandler}
-              className={styles.metButton + " " + styles.active}
+              className={styles.metButton}
             >
               String
             </button>

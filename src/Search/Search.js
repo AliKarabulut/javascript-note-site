@@ -9,8 +9,7 @@ const Search = () => {
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
-      console.log(wrapperRef.current.contains)
-      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+      if (!wrapperRef.current.contains(event.target)) {
         setIsFocused(false);
       }
     };

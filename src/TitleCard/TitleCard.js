@@ -87,11 +87,9 @@ const TitleCard = (props) => {
     }
   }, []);
 
-  const addToMethod = (e) =>{
-    dispatch(metotActions.addmetot(e))
-    
-
-  }
+  const addToMethod = (e) => {
+    dispatch(metotActions.addmetot(e));
+  };
 
   useEffect(() => {
     dispatch(metotActions.addmetot(StringMetot[0]));
@@ -115,20 +113,20 @@ const TitleCard = (props) => {
       <div className={styles.innerCard} onClick={handleTouchClose}>
         {metot === "StringMetot" &&
           StringMetot.map((is, number) => (
-            <div className={styles.cardP} onClick={addToMethod.bind(null,is)}>
+            <div className={styles.cardP} onClick={addToMethod.bind(null, is)}>
               {" "}
               {number + 1 + ". " + is.title}
             </div>
           ))}
         {metot === "NumberMetot" &&
           NumberMetot.map((is, number) => (
-            <div className={styles.cardP} onClick={addToMethod.bind(null,is)}>
+            <div className={styles.cardP} onClick={addToMethod.bind(null, is)}>
               {number + 1 + ". " + is.title}
             </div>
           ))}
         {metot === "ArrayMetot" &&
           ArrayMetot.map((is, number) => (
-            <div className={styles.cardP} onClick={addToMethod.bind(null,is)}>
+            <div className={styles.cardP} onClick={addToMethod.bind(null, is)}>
               {number + 1 + ". " + is.title}
             </div>
           ))}
