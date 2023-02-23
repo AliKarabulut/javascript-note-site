@@ -91,9 +91,6 @@ const TitleCard = (props) => {
     dispatch(metotActions.addmetot(e));
   };
 
-  useEffect(() => {
-    dispatch(metotActions.addmetot(StringMetot[0]));
-  }, []);
 
   return (
     <div
