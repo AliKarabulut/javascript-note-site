@@ -24,6 +24,11 @@ const Search = () => {
     setInputVal(value);
   };
 
+  const inputChangeHandler = (e) => {
+    setInputVal(e.target.value)
+    setIsFocused(true)
+  };
+
   return (
     <div ref={wrapperRef} className={styles.wrapper}>
       <div
@@ -32,7 +37,7 @@ const Search = () => {
         }`}
       >
         <input
-          onChange={(e) => setInputVal(e.target.value)}
+          onChange={inputChangeHandler}
           onFocus={() => setIsFocused(true)}
           className={styles.search}
           value={inputVal}
