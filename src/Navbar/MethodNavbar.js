@@ -7,7 +7,6 @@ import styles from "./navbar.module.css";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const isLogin = useSelector((state) => state.login.islogin);
   const metot = useSelector((state) => state.store.metotHeader);
   const [position, setPosition] = useState("");
   const navRef = useRef();
@@ -15,18 +14,16 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (isLogin) {
-        const el = navRef.current.querySelector(`#${metot}`);
-        const { top, width, height, bottom } = el.getBoundingClientRect();
-        const left = el.offsetLeft;
-        setPosition({
-          left,
-          top,
-          width,
-          height,
-          bottom,
-        });
-      }
+      const el = navRef.current.querySelector(`#${metot}`);
+      const { top, width, height, bottom } = el.getBoundingClientRect();
+      const left = el.offsetLeft;
+      setPosition({
+        left,
+        top,
+        width,
+        height,
+        bottom,
+      });
     };
 
     handleResize();
@@ -35,7 +32,7 @@ const Navbar = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [metot, isLogin]);
+  }, [metot]);
 
   const clickHandler = (e) => {
     dispatch(metotActions.addMetotHeader(e.target.id));

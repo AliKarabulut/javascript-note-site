@@ -5,6 +5,7 @@ import String from "../Metotlar/StringMetot";
 import Number from "../Metotlar/NumberMetot";
 import Array from "../Metotlar/ArrayMetot";
 import styles from "./Searchbar.module.css";
+import { Link } from "react-router-dom";
 
 const SearchBar = (props) => {
   const dispatch = useDispatch();
@@ -54,13 +55,14 @@ const SearchBar = (props) => {
         let components = [];
         for (let i = 0; i < 5 && i < filteredArray.length; i++) {
           components.push(
-            <div
+            <Link
+              to={filteredArray[i].id}
               onClick={barClickHandler.bind(null, filteredArray[i])}
               className={`${styles.list} ${i === selected && styles.selected}`}
               key={i}
             >
               {filteredArray[i].id}
-            </div>
+            </Link>
           );
         }
         return components;
