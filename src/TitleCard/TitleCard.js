@@ -5,6 +5,7 @@ import StringMetot from "../Metotlar/StringMetot";
 import NumberMetot from "../Metotlar/NumberMetot";
 import ArrayMetot from "../Metotlar/ArrayMetot";
 import styles from "./TitleCard.module.css";
+import { Link } from "react-router-dom";
 
 const TitleCard = (props) => {
   const dispatch = useDispatch();
@@ -110,22 +111,22 @@ const TitleCard = (props) => {
       <div className={styles.innerCard} onClick={handleTouchClose}>
         {metot === "StringMetot" &&
           StringMetot.map((is, number) => (
-            <div className={styles.cardP} onClick={addToMethod.bind(null, is)} key={number +1 }>
+            <Link to={is.id} className={styles.cardP} onClick={addToMethod.bind(null, is)} key={is.id }>
               {" "}
               {number + 1 + ". " + is.title}
-            </div>
+            </Link>
           ))}
         {metot === "NumberMetot" &&
           NumberMetot.map((is, number) => (
-            <div className={styles.cardP} onClick={addToMethod.bind(null, is)} key={number +1 }>
+            <Link to={is.id} className={styles.cardP} onClick={addToMethod.bind(null, is)} key={is.id }>
               {number + 1 + ". " + is.title}
-            </div>
+            </Link>
           ))}
         {metot === "ArrayMetot" &&
           ArrayMetot.map((is, number) => (
-            <div className={styles.cardP} onClick={addToMethod.bind(null, is)} key={number +1 }>
+            <Link to={is.id} className={styles.cardP} onClick={addToMethod.bind(null, is)} key={is.id }>
               {number + 1 + ". " + is.title}
-            </div>
+            </Link>
           ))}
       </div>
     </div>

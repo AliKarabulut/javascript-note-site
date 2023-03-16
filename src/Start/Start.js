@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { loginActions } from "../store/login";
 import styles from "./Start.module.css";
 
@@ -16,9 +17,9 @@ const Start = () => {
         gördüğünüz ya da eklemek istediğiniz şeyler için githubdan destek
         atabilirsiniz :)
       </p>
-      <button className={styles.btn + " " + styles.b13} onClick={loginHandler}>
+      <Link to='/method' className={styles.btn + " " + styles.b13} onClick={loginHandler}>
         Hadi Başlayalım.
-      </button>
+      </Link>
     </div>
   );
 };

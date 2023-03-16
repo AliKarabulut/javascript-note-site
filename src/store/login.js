@@ -5,15 +5,14 @@ const initialLoginState = {
 };
 
 const loginSlice = createSlice({
-    name: "Login",
-    initialState: initialLoginState,
-    reducers: {
-      login(state) {
-        state.islogin = true;
-      },
+  name: "Login",
+  initialState: initialLoginState,
+  reducers: {
+    login(state) {
+      state.islogin = true;
     },
-  });
-  
-  export const loginActions = loginSlice.actions
-  export default loginSlice.reducer;
-  
+  },
+});
+
+export const loginActions = loginSlice.actions;
+export default loginSlice.reducer;
