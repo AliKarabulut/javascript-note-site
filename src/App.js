@@ -18,10 +18,11 @@ const rooter = createBrowserRouter([
     children: [
       { index: true, element: <HelloPage /> },
       {
-        path: "method",
+        path: "/string",
         element: <MethodRootLayout />,
         children: [{ path: ":id", element: <MethodDetail /> }],
       },
+      
     ],
   },
 ]);

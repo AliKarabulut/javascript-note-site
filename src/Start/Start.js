@@ -17,7 +17,7 @@ const Start = () => {
         gördüğünüz ya da eklemek istediğiniz şeyler için githubdan destek
         atabilirsiniz :)
       </p>
-      <Link to='/method' className={styles.btn + " " + styles.b13} onClick={loginHandler}>
+      <Link to='/' className={styles.btn + " " + styles.b13} onClick={loginHandler}>
         Hadi Başlayalım.
       </Link>
     </div>

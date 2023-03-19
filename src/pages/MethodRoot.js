@@ -6,9 +6,7 @@ import TitleCard from "../TitleCard/TitleCard";
 const MethodRootLayout = () => {
   return (
     <Fragment>
-      <Navbar />
       <Outlet />
-      <TitleCard />
     </Fragment>
   );
 };
