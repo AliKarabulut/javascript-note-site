@@ -1,4 +1,7 @@
 import { useState, useRef, useEffect } from "react";
+import UseAnimations from "react-useanimations";
+import activity from "react-useanimations/lib/activity";
+
 import styles from "./Search.module.css";
 import SearchBar from "./Searchbar";
 
@@ -25,8 +28,8 @@ const Search = () => {
   };
 
   const inputChangeHandler = (e) => {
-    setInputVal(e.target.value)
-    setIsFocused(true)
+    setInputVal(e.target.value);
+    setIsFocused(true);
   };
 
   return (
@@ -44,7 +47,8 @@ const Search = () => {
           type="text"
           placeholder="Ara"
         />
-        <i className={styles.icon}></i>
+
+        <UseAnimations animation={activity}></UseAnimations>
       </div>
       {isFocused && <SearchBar send={inputVal} onInputVal={addToInputVal} />}
     </div>

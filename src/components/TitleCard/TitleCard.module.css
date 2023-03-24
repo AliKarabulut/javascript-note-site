@@ -12,6 +12,10 @@
 .cardP {
   line-height: 2.2rem;
   font-size: 1.2rem;
+  display: block;
+  text-decoration: none;
+  color: black;
+
 }
 
 .innerCard {

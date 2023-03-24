@@ -1,26 +1,35 @@
-import { useDispatch } from "react-redux";
-import { metotActions } from "../store/store";
+import { useDispatch, useSelector } from "react-redux";
+import { metotActions } from "../../store/store";
 import { useEffect, useState } from "react";
-import String from "../Metotlar/StringMetot";
-import Number from "../Metotlar/NumberMetot";
-import Array from "../Metotlar/ArrayMetot";
+
 import styles from "./Searchbar.module.css";
+import { Link, useNavigate } from "react-router-dom";
 
 const SearchBar = (props) => {
   const dispatch = useDispatch();
   const [selected, setSelected] = useState(0);
-
+  const stringMetotlar = useSelector((state) => state.store.stringMetotlar);
+  const arrayMetotlar = useSelector((state) => state.store.arrayMetotlar);
+  const numberMetotlar = useSelector((state) => state.store.numberMetotlar);
+  const navigate = useNavigate();
   const barClickHandler = (e) => {
-    dispatch(metotActions.addmetot(e));
-    dispatch(metotActions.addMetotHeader(e.name));
-    props.onInputVal(e.id);
+    
+    props.onInputVal(e.value);
+    dispatch(metotActions.addMetotHeader(e.type))
+    navigate("/" + e.type + "/" + e.value);
   };
 
   const sendLower = props.send.toLowerCase();
   const filteredArray = [].concat(
-    String.filter((val) => val.id.toLowerCase().includes(sendLower)),
-    Number.filter((val) => val.id.toLowerCase().includes(sendLower)),
-    Array.filter((val) => val.id.toLowerCase().includes(sendLower))
+    stringMetotlar
+      .filter((val) => val.toLowerCase().includes(sendLower))
+      .map((val) => ({ value: val, type: "string" })),
+    arrayMetotlar
+      .filter((val) => val.toLowerCase().includes(sendLower))
+      .map((val) => ({ value: val, type: "array" })),
+    numberMetotlar
+      .filter((val) => val.toLowerCase().includes(sendLower))
+      .map((val) => ({ value: val, type: "number" }))
   );
 
   const handleKeyDown = (event) => {
@@ -54,13 +63,14 @@ const SearchBar = (props) => {
         let components = [];
         for (let i = 0; i < 5 && i < filteredArray.length; i++) {
           components.push(
-            <div
+            <Link
+              to={filteredArray[i].type + "/" + filteredArray[i].value}
               onClick={barClickHandler.bind(null, filteredArray[i])}
               className={`${styles.list} ${i === selected && styles.selected}`}
               key={i}
             >
-              {filteredArray[i].id}
-            </div>
+              {filteredArray[i].type + ": " + filteredArray[i].value}
+            </Link>
           );
         }
         return components;

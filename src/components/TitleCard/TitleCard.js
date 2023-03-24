@@ -1,14 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { metotActions } from "../store/store";
-import StringMetot from "../Metotlar/StringMetot";
-import NumberMetot from "../Metotlar/NumberMetot";
-import ArrayMetot from "../Metotlar/ArrayMetot";
+import { Link } from "react-router-dom";
 import styles from "./TitleCard.module.css";
 
-const TitleCard = (props) => {
-  const dispatch = useDispatch();
+const TitleCard = () => {
   const metot = useSelector((state) => state.store.metotHeader);
+  const stringMetotlar = useSelector((state) => state.store.stringMetotlar);
+  const arrayMetotlar = useSelector((state) => state.store.arrayMetotlar);
+  const numberMetotlar = useSelector((state) => state.store.numberMetotlar);
+
+  // console.log(metots)
 
   //teleefon uyumluluğu
   const [divRight, setDivRight] = useState(0);
@@ -87,11 +88,6 @@ const TitleCard = (props) => {
     }
   }, []);
 
-  const addToMethod = (e) => {
-    dispatch(metotActions.addmetot(e));
-  };
-
-
   return (
     <div
       className={styles.card + " " + styles.animation}
@@ -108,24 +104,24 @@ const TitleCard = (props) => {
         {" "}
       </div>
       <div className={styles.innerCard} onClick={handleTouchClose}>
-        {metot === "StringMetot" &&
-          StringMetot.map((is, number) => (
-            <div className={styles.cardP} onClick={addToMethod.bind(null, is)} key={number +1 }>
+        {metot === "string" &&
+          stringMetotlar.map((is, number) => (
+            <Link to={metot + "/" + is} className={styles.cardP} key={is}>
               {" "}
-              {number + 1 + ". " + is.title}
-            </div>
+              {number + 1 + ". " + is}
+            </Link>
           ))}
-        {metot === "NumberMetot" &&
-          NumberMetot.map((is, number) => (
-            <div className={styles.cardP} onClick={addToMethod.bind(null, is)} key={number +1 }>
-              {number + 1 + ". " + is.title}
-            </div>
+        {metot === "number" &&
+          numberMetotlar.map((is, number) => (
+            <Link to={metot + "/" + is} className={styles.cardP} key={is}>
+              {number + 1 + ". " + is}
+            </Link>
           ))}
-        {metot === "ArrayMetot" &&
-          ArrayMetot.map((is, number) => (
-            <div className={styles.cardP} onClick={addToMethod.bind(null, is)} key={number +1 }>
-              {number + 1 + ". " + is.title}
-            </div>
+        {metot === "array" &&
+          arrayMetotlar.map((is, number) => (
+            <Link to={metot + "/" + is} className={styles.cardP} key={is}>
+              {number + 1 + ". " + is}
+            </Link>
           ))}
       </div>
     </div>

@@ -1,0 +1,28 @@
+.startWrapper {
+  width: 80%;
+
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.startP {
+  font-size: 1.5rem;
+  padding: 0px 5%;
+  text-align: justify;
+}
+
+@media (max-width: 850px) {
+  .startWrapper {
+    width: 70%;
+  }
+}
+
+
+@media (max-width: 750px) {
+  .startWrapper {
+    width: 90%;
+  }
+}

@@ -3,12 +3,17 @@
     width: 100%;
     border: 1px solid #F7F7F7;
     border-radius: 0px 0px 5px 5px;
+    z-index: 1;
 }
 
 .list{
     background-color: #fff;
     border-bottom: 1px solid #F7F7F7;
     padding: 5px 10px;
+    display: block;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: black;
 }
 
 .list:hover{cursor: pointer;}
