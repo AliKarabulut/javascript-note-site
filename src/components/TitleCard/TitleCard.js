@@ -22,6 +22,7 @@ const TitleCard = () => {
     setIsMouseDown(true);
     setFPosition(e.touches[0].clientX);
     navRef.current.classList.toggle(styles.animation);
+    document.querySelector(`.${styles.swipeArrow}`).style.display = "none"; // swipeArrow elemanını gizle
   };
 
   const handleTouchMove = (e) => {
@@ -75,6 +76,7 @@ const TitleCard = () => {
     const handleHover = () => {
       navRef.current.addEventListener("mouseenter", () => {
         navRef.current.style.right = "0";
+        document.querySelector(`.${styles.swipeArrow}`).style.display = "none"; // swipeArrow elemanını gizle
       });
       navRef.current.addEventListener("mouseleave", () => {
         navRef.current.style.right = "";
@@ -89,40 +91,47 @@ const TitleCard = () => {
   }, []);
 
   return (
-    <div
-      className={styles.card + " " + styles.animation}
-      ref={navRef}
-      style={{ "--right": oldPosition + divRight + "px" }}
-    >
+    <div>
       {" "}
+      <div className={styles.swipeArrow}>
+        <div className={styles.arrow}></div>
+        <div className={styles.text}>Swipe</div>
+      </div>
       <div
-        className={styles.mover}
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
+        className={styles.card + " " + styles.animation}
+        ref={navRef}
+        style={{ "--right": oldPosition + divRight + "px" }}
       >
         {" "}
-      </div>
-      <div className={styles.innerCard} onClick={handleTouchClose}>
-        {metot === "string" &&
-          stringMetotlar.map((is, number) => (
-            <Link to={metot + "/" + is} className={styles.cardP} key={is}>
-              {" "}
-              {number + 1 + ". " + is}
-            </Link>
-          ))}
-        {metot === "number" &&
-          numberMetotlar.map((is, number) => (
-            <Link to={metot + "/" + is} className={styles.cardP} key={is}>
-              {number + 1 + ". " + is}
-            </Link>
-          ))}
-        {metot === "array" &&
-          arrayMetotlar.map((is, number) => (
-            <Link to={metot + "/" + is} className={styles.cardP} key={is}>
-              {number + 1 + ". " + is}
-            </Link>
-          ))}
+        <div
+          className={styles.mover}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          {" "}
+        </div>
+        <div className={styles.innerCard} onClick={handleTouchClose}>
+          {metot === "string" &&
+            stringMetotlar.map((is, number) => (
+              <Link to={metot + "/" + is} className={styles.cardP} key={is}>
+                {" "}
+                {number + 1 + ". " + is}
+              </Link>
+            ))}
+          {metot === "number" &&
+            numberMetotlar.map((is, number) => (
+              <Link to={metot + "/" + is} className={styles.cardP} key={is}>
+                {number + 1 + ". " + is}
+              </Link>
+            ))}
+          {metot === "array" &&
+            arrayMetotlar.map((is, number) => (
+              <Link to={metot + "/" + is} className={styles.cardP} key={is}>
+                {number + 1 + ". " + is}
+              </Link>
+            ))}
+        </div>
       </div>
     </div>
   );

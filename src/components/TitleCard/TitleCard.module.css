@@ -15,7 +15,6 @@
   display: block;
   text-decoration: none;
   color: black;
-
 }
 
 .innerCard {
@@ -41,4 +40,54 @@
 
 .mover {
   width: 30px;
+}
+
+.swipeArrow {
+  display: inline-flex;
+  align-items: center;
+  font-family: sans-serif;
+  position: fixed;
+  top: 180px;
+  right: 40px;
+}
+
+@media (min-width: 751px) {
+  .swipeArrow {
+    display: none;
+  }
+}
+
+.arrow {
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 20px solid #20232a;
+  transform: rotate(-45deg);
+  animation: arrow-anim 1s ease-in-out infinite alternate;
+}
+
+.text {
+  margin-left: 10px;
+  font-size: 1.2rem;
+  color: #555;
+  animation: text-anim 1s ease-in-out infinite alternate;
+}
+
+@keyframes arrow-anim {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-10px);
+  }
+}
+
+@keyframes text-anim {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-5px);
+  }
 }
