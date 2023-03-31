@@ -3,11 +3,7 @@ import { metotActions } from "../../store/store";
 import { useEffect, useState } from "react";
 
 import styles from "./Searchbar.module.css";
-<<<<<<< HEAD:src/components/Search/Searchbar.js
 import { Link, useNavigate } from "react-router-dom";
-=======
-import { Link } from "react-router-dom";
->>>>>>> origin/main:src/Search/Searchbar.js
 
 const SearchBar = (props) => {
   const dispatch = useDispatch();
@@ -68,20 +64,12 @@ const SearchBar = (props) => {
         for (let i = 0; i < 5 && i < filteredArray.length; i++) {
           components.push(
             <Link
-<<<<<<< HEAD:src/components/Search/Searchbar.js
               to={filteredArray[i].type + "/" + filteredArray[i].value}
-=======
-              to={filteredArray[i].id}
->>>>>>> origin/main:src/Search/Searchbar.js
               onClick={barClickHandler.bind(null, filteredArray[i])}
               className={`${styles.list} ${i === selected && styles.selected}`}
               key={i}
             >
-<<<<<<< HEAD:src/components/Search/Searchbar.js
               {filteredArray[i].type + ": " + filteredArray[i].value}
-=======
-              {filteredArray[i].id}
->>>>>>> origin/main:src/Search/Searchbar.js
             </Link>
           );
         }

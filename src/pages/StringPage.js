@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Fragment, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { json, useLoaderData } from "react-router-dom";
@@ -41,18 +40,3 @@ export const loader = async ({ params }) => {
     return resData;
   }
 };
-=======
-import { Fragment } from "react";
-import MethodBody from "../MethodBody/MethodBody";
-import TitleCard from "../TitleCard/TitleCard";
-
-const StringPage = () => {
-  return (
-    <Fragment>
-      <MethodBody></MethodBody>
-      <TitleCard></TitleCard>
-    </Fragment>
-  );
-};
-export default StringPage;
->>>>>>> origin/main

@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import styles from "./TitleCard.module.css";
-import { Link } from "react-router-dom";
 
 const TitleCard = () => {
   const metot = useSelector((state) => state.store.metotHeader);
@@ -104,7 +103,6 @@ const TitleCard = () => {
         style={{ "--right": oldPosition + divRight + "px" }}
       >
         {" "}
-<<<<<<< HEAD:src/components/TitleCard/TitleCard.js
         <div
           className={styles.mover}
           onTouchStart={handleTouchStart}
@@ -134,29 +132,6 @@ const TitleCard = () => {
               </Link>
             ))}
         </div>
-=======
-      </div>
-      <div className={styles.innerCard} onClick={handleTouchClose}>
-        {metot === "StringMetot" &&
-          StringMetot.map((is, number) => (
-            <Link to={is.id} className={styles.cardP} onClick={addToMethod.bind(null, is)} key={is.id }>
-              {" "}
-              {number + 1 + ". " + is.title}
-            </Link>
-          ))}
-        {metot === "NumberMetot" &&
-          NumberMetot.map((is, number) => (
-            <Link to={is.id} className={styles.cardP} onClick={addToMethod.bind(null, is)} key={is.id }>
-              {number + 1 + ". " + is.title}
-            </Link>
-          ))}
-        {metot === "ArrayMetot" &&
-          ArrayMetot.map((is, number) => (
-            <Link to={is.id} className={styles.cardP} onClick={addToMethod.bind(null, is)} key={is.id }>
-              {number + 1 + ". " + is.title}
-            </Link>
-          ))}
->>>>>>> origin/main:src/TitleCard/TitleCard.js
       </div>
     </div>
   );
