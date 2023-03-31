@@ -1,0 +1,41 @@
+.card {
+  position: fixed;
+  top: 45px;
+  right: 0px;
+  min-width: 240px;
+  height: calc(100vh - 45px);
+  background-color: #f7f7f7;
+  padding: 20px 0px 20px 0px;
+  display: flex;
+  justify-content: flex-start;
+}
+.cardP {
+  line-height: 2.2rem;
+  font-size: 1.2rem;
+  display: block;
+}
+
+.innerCard {
+  width: 220px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.innerCard:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 750px) {
+  .card {
+    right: var(--right);
+    padding: 20px 0px 70px 0px;
+  }
+}
+
+.animation {
+  transition: 0.3s all;
+}
+
+.mover {
+  width: 30px;
+}

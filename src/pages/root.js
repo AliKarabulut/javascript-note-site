@@ -1,17 +1,16 @@
 import { Fragment } from "react";
 import { Outlet } from "react-router-dom";
-import Navbar from "../components/Navbar/navbar";
-import TitleCard from "../components/TitleCard/TitleCard";
+import Navbar from "../Navbar/navbar";
 
 const RootLayout = () => {
   return (
     <Fragment>
       <Navbar />
-      <div>
+      <main>
         <Outlet />
-        <TitleCard />
-      </div>
+      </main>
     </Fragment>
   );
 };
+
 export default RootLayout;

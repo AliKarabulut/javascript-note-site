@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Fragment, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { json, useLoaderData } from "react-router-dom";
@@ -14,11 +15,23 @@ const NumberPage = () => {
   return (
     <Fragment>
       <MethodBody data={data} />
+=======
+import { Fragment } from "react";
+import MethodBody from "../MethodBody/MethodBody";
+import TitleCard from "../TitleCard/TitleCard";
+
+const NumberPage = () => {
+  return (
+    <Fragment>
+      <MethodBody></MethodBody>
+      <TitleCard></TitleCard>
+>>>>>>> origin/main
     </Fragment>
   );
 };
 export default NumberPage;
 
+<<<<<<< HEAD
 export const loader = async ({ params }) => {
   const id = params.id;
   const response = await fetch(
@@ -39,3 +52,5 @@ export const loader = async ({ params }) => {
     return resData;
   }
 };
+=======
+>>>>>>> origin/main
